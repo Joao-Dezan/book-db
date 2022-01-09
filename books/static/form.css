@@ -1,0 +1,27 @@
+.field-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+label {
+	font-size: 1.2rem;
+	margin-bottom: .5rem;
+}
+
+input {
+	font-size: 1rem;
+	height: 3em;
+	border: none;
+	border-radius: .7em;
+	padding: 0 1rem;
+}
+
+textarea {
+	font-family: sans-serif;
+	font-size: 1rem;
+	height: 4rem;
+	padding: .8rem;
+	border-radius: .7rem;
+}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<h1>{% block title %}Your books{% endblock %}</h1>
+{% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'list_book.css' %}">
+{% endblock %}
+
+{% block content %}
+	
+	<div class="list-books">
+	{% for book in books %}		
+		<a href="{% url 'details' id=book.id %}">
+			<div class="list-books-item">{{ book.title }}</div>
+		</a>
+	{% endfor %}
+	</div>
+
+	<div class="btn-area">
+		<a class="btn" href="{% url 'create' %}">Add a book</a>
+	</div>
+{% endblock %}

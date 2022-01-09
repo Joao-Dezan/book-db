@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<h1>{% block title %}Add a book{% endblock %}</h1>
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<div class="field-wrapper">
+		{{ form.title.label_tag }}
+		{{ form.title }}
+		{{ form.title.errors }}
+	</div>
+	<div class="field-wrapper">
+		{{ form.description.label_tag }}
+		{{ form.description }}
+		{{ form.description.errors }}
+	</div>
+
+	<div class="btn-area">
+		<input class="btn" type="submit" value="Add">
+	</div>
+</form>
+{% endblock %}

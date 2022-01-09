@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+{% endblock head %}
+
+{% block header %}
+    <h1>
+    {% block title %}
+    Editing - {% if book %}{{ book.title }}{% endif %}
+    {% endblock title %}
+    </h1>
+{% endblock header %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<div class="field-wrapper">
+		{{ form.title.label_tag }}
+		<input name="title" id="title" 
+            value="{% if book %}{{ book.title }}{% endif %}">
+		{{ form.title.errors }}
+	</div>
+	<div class="field-wrapper">
+		{{ form.description.label_tag }}
+		<textarea name="description" id="description">
+			{% if book %}{{ book.description }}{% endif %}
+		</textarea>
+		{{ form.description.errors }}
+	</div>
+
+	<div class="btn-area">
+		<input class="btn" type="submit" value="Edit">
+	</div>
+</form>
+{% endblock content %}

@@ -1,0 +1,18 @@
+.list-books {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 1rem;
+	flex-wrap: wrap;
+}
+
+.list-books-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1.4rem 2.2rem;
+	background-color: #fff;
+	color: #222;
+	margin: .5rem;
+	border-radius: .7rem;
+}
+

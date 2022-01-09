@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <h1>
+    {% block title %}
+        {% if book %}
+        {{ book.title }}
+        {% else %}
+        Book not found
+        {% endif %}
+    {% endblock title %}
+    </h1>
+{% endblock header %}
+
+{% block content %}
+    {% if book %}
+    <p>{{ book.description }}</p>
+    <p>{{ book.pub_date }}</p>
+    <div class="btn-area">
+        <a class="btn btn-primary" href="{% url 'edit' id=book.id %}">Edit</a>
+        <a class="btn btn-second" href="{% url 'delete' id=book.id %}">Delete</a>
+    </div>
+    {% endif %}
+{% endblock content %}

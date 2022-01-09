@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+	<h1>{% block title %}Login{% endblock %}</h1>
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'form.css' %}">
+{% endblock %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<div class="field-wrapper">
+		{{ form.username.label_tag }}
+		<input name="username" id="username">
+		{{ form.username.errors }}
+	</div>
+	<div class="field-wrapper">
+		{{ form.password.label_tag }}
+		{{ form.password }}
+		{{ form.password.errors }}
+	</div>
+	{% for error in form.non_field_errors %}
+	<p>{{ error }}</p>
+	{% endfor %}
+
+	<div class="btn-area">
+		<input class="btn" type="submit" value="Enter">
+		<a class="btn btn-second" href="{% url 'signup' %}">Sign Up</a>
+	</div>
+</form>
+{% endblock %}
